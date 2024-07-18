@@ -26,18 +26,18 @@ formulario.addEventListener('submit', (event) => {
     let msge_c = "";
 
     // Validaciones de entrada
-    if (!a || isNaN(a) || parseFloat(a) < 0) {
-        msge_a = "Debes de ingresar un número válido y positivo para el coeficiente a";
+    if (!a || isNaN(a) || !Number.isInteger(parseFloat(a))) {
+        msge_a = "Debes ingresar un número entero válido para el coeficiente a";
         centinela = true;
     }
 
-    if (!b || isNaN(b) || parseFloat(b) < 0) {
-        msge_b = "Debes de ingresar un número válido y positivo para el coeficiente b";
+    if (!b || isNaN(b) || !Number.isInteger(parseFloat(b))) {
+        msge_b = "Debes ingresar un número entero válido para el coeficiente b";
         centinela = true;
     }
 
-    if (!c || isNaN(c) || parseFloat(c) < 0) {
-        msge_c = "Debes de ingresar un número válido y positivo para el coeficiente c";
+    if (!c || isNaN(c) || !Number.isInteger(parseFloat(c))) {
+        msge_c = "Debes ingresar un número entero válido para el coeficiente c";
         centinela = true;
     }
 
@@ -61,7 +61,7 @@ formulario.addEventListener('submit', (event) => {
 
     // Validar el discriminante
     if (discriminante < 0) {
-        mostrarError("No hay solucion");
+        mostrarError("No hay solución");
         return;
     }
 
@@ -79,7 +79,7 @@ formulario.addEventListener('submit', (event) => {
     imprimir(aNum, bNum, cNum, x1, x2);
 });
 
-// Funcin para imprimir la tabla con los coeficientes y resultados
+// Función para imprimir la tabla con los coeficientes y resultados
 let imprimir = (a, b, c, x1, x2) => {
     let msg = "<table class='container table  table-bordered mt-4'>";
     msg += "<thead>"
@@ -93,14 +93,14 @@ let imprimir = (a, b, c, x1, x2) => {
     msg += "</thead><tbody>";
     
     msg += "<tr>"
-    msg += <td>${a}</td>
-    msg += <td>${b}</td>
-    msg += <td>${c}</td>
-    msg += <td>${x1}</td>
-    msg += <td>${x2}</td>
-    msg += </tr>;
+    msg += `<td>${a}</td>`
+    msg += `<td>${b}</td>`
+    msg += `<td>${c}</td>`
+    msg += `<td>${x1}</td>`
+    msg += `<td>${x2}</td>`
+    msg += `</tr>`;
     msg += "</tbody></table>";
-    msg += <button class='btn btn-primary mt-4' onclick='regresar()'>Regresar</button>;
+    msg += `<button class='btn btn-primary mt-4' onclick='regresar()'>Regresar</button>`;
     
     tabla.innerHTML = msg; 
     document.getElementById('formulario-container').style.display = 'none'; 
@@ -108,10 +108,10 @@ let imprimir = (a, b, c, x1, x2) => {
 
 // Función para mostrar un mensaje de error
 let mostrarError = (mensaje) => {
-    let msg = <div class='container mt-4'>;
-    msg += <p class='text-danger'>${mensaje}</p>;
-    msg += <button class='btn btn-primary mt-4' onclick='regresar()'>Regresar</button>;
-    msg += </div>;
+    let msg = `<div class='container mt-4'>`;
+    msg += `<p class='text-danger'>${mensaje}</p>`;
+    msg += `<button class='btn btn-primary mt-4' onclick='regresar()'>Regresar</button>`;
+    msg += `</div>`;
     
     tabla.innerHTML = msg; 
     document.getElementById('formulario-container').style.display = 'none'; 
@@ -124,4 +124,4 @@ let regresar = () => {
     tabla.innerHTML = ''; 
     // Mostrar el formulario
     // Limpiar el contenido de la tabla
-}; 
+};
