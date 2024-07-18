@@ -26,18 +26,18 @@ formulario.addEventListener('submit', (event) => {
     let msge_c = "";
 
     // Validaciones de entrada
-    if (!a || isNaN(a) || !Number.isInteger(parseFloat(a))) {
-        msge_a = "Debes ingresar un número entero válido para el coeficiente a";
+    if (!a || isNaN(a)) {
+        msge_a = "Debes de ingresar un número válido para el coeficiente a";
         centinela = true;
     }
 
-    if (!b || isNaN(b) || !Number.isInteger(parseFloat(b))) {
-        msge_b = "Debes ingresar un número entero válido para el coeficiente b";
+    if (!b || isNaN(b)) {
+        msge_b = "Debes de ingresar un número válido para el coeficiente b";
         centinela = true;
     }
 
-    if (!c || isNaN(c) || !Number.isInteger(parseFloat(c))) {
-        msge_c = "Debes ingresar un número entero válido para el coeficiente c";
+    if (!c || isNaN(c)) {
+        msge_c = "Debes de ingresar un número válido para el coeficiente c";
         centinela = true;
     }
 
